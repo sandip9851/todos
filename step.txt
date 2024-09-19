@@ -1,0 +1,41 @@
+TODO APP
+
+project setup
+express setup
+mongodb setup
+
+setup EJS
+
+register page
+login page
+
+
+register Api
+login Api
+
+session base Auth
+midelware to protect other api
+
+dashboard page
+log out
+log out from all devices
+
+
+todo's api
+create Api
+read Api
+edit Api
+Delete Api
+
+
+dashboard client (axios)
+axios create Api
+axios read Api
+axios write Api
+axios Delete Api
+
+
+pagination Api
+rate limiting
+
+email base authentication (JWT)
