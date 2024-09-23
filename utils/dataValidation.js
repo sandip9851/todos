@@ -33,4 +33,4 @@ const userDataValidate = ({ name, email, username, password }) => {
   });
 };
 
-module.exports = { userDataValidate };
+module.exports = { userDataValidate,isEmailValidate };
