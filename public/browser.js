@@ -1,8 +1,9 @@
+let skip = 0
 window.onload = gettingTodo();
 
 function gettingTodo() {
   axios
-    .get("/read-todo")
+    .get(`/read-todo?skip=${skip}`)
     .then((res) => {
       console.log(res);
 
@@ -10,8 +11,10 @@ function gettingTodo() {
       /*if(res.data.status !== 200){
       alert(res.data.message)
     }*/
-
+      
       const todoData = res.data.data;
+      skip += todoData.length;
+     
       document.getElementById("item_list").insertAdjacentHTML(
         "beforeend",
         todoData
@@ -118,5 +121,8 @@ document.addEventListener("click", (e) => {
       .catch((err) => {
         console.log(err);
       });
+  }else if(e.target.classList.contains("show-more")){
+    gettingTodo()
+
   }
 });

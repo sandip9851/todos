@@ -234,9 +234,16 @@ app.post("/create-item",isAuth, async(req,res)=>{
 }) 
 
 app.get("/read-todo",isAuth,async (req,res)=>{
+  
+  const SKIP = Number(req.query.skip) || 0; //should be typecast becoz come as string
+  
+  const LIMIT = 2;
+
   const username = req.session.user.username;
  try {
-  const todos = await todoModel.find({username : username})
+  //const todos = await todoModel.find({username : username})
+
+  const todos = await todoModel.aggregate([{$match : {username : username}},{$skip : SKIP},{$limit : LIMIT }])
 
   if(todos.length === 0) return res.status(204).json("Add your todo first")
 
